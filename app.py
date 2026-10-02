@@ -19,6 +19,13 @@ def load_artifacts():
     return scaler, le, model
 
 scaler, le, model = load_artifacts()
+feature_imp = pd.read_csv(
+    "feature_importance.csv"
+)
+
+model_comp = pd.read_csv(
+    "model_comparison.csv"
+)
 # Sidebar Dataset Info
 st.sidebar.header("Dataset Information")
 
@@ -159,58 +166,24 @@ if st.button("🔍 Predict Bean Variety", type="primary", use_container_width=Tr
 
     st.subheader("📊 Feature Importance")
 
-    feature_names = [
-        "Area",
-        "Perimeter",
-        "MajorAxisLength",
-        "MinorAxisLength",
-        "AspectRatio",
-        "Eccentricity",
-        "ConvexArea",
-        "EquivalentDiameter",
-        "Extent",
-        "Solidity",
-        "Roundness",
-        "Compactness",
-        "ShapeFactor1",
-        "ShapeFactor2",
-        "ShapeFactor3",
-        "ShapeFactor4"
-    ]
 
-    feature_importance = [
-        0.18,
-        0.12,
-        0.10,
-        0.08,
-        0.09,
-        0.05,
-        0.07,
-        0.06,
-        0.03,
-        0.04,
-        0.05,
-        0.04,
-        0.03,
-        0.02,
-        0.02,
-        0.02
-    ]
 
-    importance_df = pd.DataFrame({
-        "Feature": feature_names,
-        "Importance": feature_importance
-    })
+    st.subheader("📊 Feature Importance")
 
-    importance_df = importance_df.sort_values(
-        by="Importance",
-        ascending=False
+    st.bar_chart(
+        feature_imp.set_index("Feature")
+    )
+
+    st.subheader("Top 5 Important Features")
+
+    st.dataframe(
+        feature_imp.head(5),
+        use_container_width=True
     )
 
     st.bar_chart(
-        importance_df.set_index("Feature")
+    feature_imp.set_index("Feature")
     )
-
     st.subheader("📌 Confusion Matrix")
 
     st.image(
