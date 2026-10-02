@@ -164,7 +164,7 @@ if st.button("🔍 Predict Bean Variety", type="primary", use_container_width=Tr
     st.dataframe(comparison_df)
     st.divider()
 
-    st.subheader("📊 Feature Importance")
+  
 
 
 
