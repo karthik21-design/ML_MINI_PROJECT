@@ -127,6 +127,19 @@ if st.button("🔍 Predict Bean Variety", type="primary", use_container_width=Tr
         "Prediction Confidence",
         f"{top_prob:.2f}%"
     )
+    st.subheader("🔍 Prediction Explanation")
+
+    top_features = feature_imp.head(5)
+
+    st.write(
+        f"The model mainly uses the following morphological characteristics to classify bean varieties:"
+    )
+
+    st.dataframe(
+        top_features,
+        use_container_width=True
+    )
+
     bean_info = {
     "SEKER": "Small rounded bean variety.",
     "BARBUNYA": "Large kidney-shaped bean.",
@@ -190,3 +203,23 @@ if st.button("🔍 Predict Bean Variety", type="primary", use_container_width=Tr
         "confusion_matrix.png",
         use_container_width=True
     )
+
+    st.divider()
+
+    st.subheader("📖 Project Summary")
+
+    st.write("""
+    This system classifies seven dry bean varieties using
+    16 morphological characteristics.
+
+    The project compares Random Forest,
+    XGBoost, LightGBM and Soft Voting Ensemble models.
+
+    The Soft Voting Ensemble model achieved the
+    best overall performance and was selected
+    for deployment.
+
+    Feature importance analysis identifies the
+    most influential bean characteristics,
+    making the classification process explainable.
+    """)
