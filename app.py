@@ -114,11 +114,7 @@ if st.button("🔍 Predict Bean Variety", type="primary", use_container_width=Tr
     st.success(f"### Predicted Bean Variety: **{predicted_bean}** 🎉")
     top_prob = max(probabilities) * 100
 
-    top_prob = max(probabilities) * 100
 
-    st.success(
-        f"### Predicted Bean Variety: {predicted_bean}"
-    )
 
     st.metric(
         "Prediction Confidence",
