@@ -204,22 +204,4 @@ if st.button("🔍 Predict Bean Variety", type="primary", use_container_width=Tr
         use_container_width=True
     )
 
-    st.divider()
-
-    st.subheader("📖 Project Summary")
-
-    st.write("""
-    This system classifies seven dry bean varieties using
-    16 morphological characteristics.
-
-    The project compares Random Forest,
-    XGBoost, LightGBM and Soft Voting Ensemble models.
-
-    The Soft Voting Ensemble model achieved the
-    best overall performance and was selected
-    for deployment.
-
-    Feature importance analysis identifies the
-    most influential bean characteristics,
-    making the classification process explainable.
-    """)
+   
