@@ -211,12 +211,9 @@ if st.button("🔍 Predict Bean Variety", type="primary", use_container_width=Tr
         importance_df.set_index("Feature")
     )
 
-    st.divider()
-
     st.subheader("📌 Confusion Matrix")
 
     st.image(
         "confusion_matrix.png",
-        caption="Normalized Confusion Matrix",
         use_container_width=True
     )
